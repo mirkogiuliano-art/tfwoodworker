@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WoodArt - Prodotti in Legno</title>
+  <style>
+    /* Reset base */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: Arial, sans-serif; line-height:1.6; color:#333; background:#f7f3ee; }
+    a { text-decoration:none; color:inherit; }
+    img { max-width:100%; display:block; }
+
+    /* Container */
+    .container { width:90%; max-width:1200px; margin:0 auto; }
+
+    /* Header */
+    header { background:#8B4513; color:#fff; padding:1rem; }
+    nav ul { list-style:none; display:flex; gap:1rem; }
+
+    /* Hero */n    .hero { background:#e8dfd0; padding:2rem 0; text-align:center; }
+    .hero h1 { font-size:2.5rem; margin-bottom:0.5rem; color:#4b2e1a; }
+    .hero p { font-size:1.1rem; margin-bottom:1rem; }
+    .hero button { background:#4b2e1a; color:#fff; border:none; padding:0.75rem 1.5rem; cursor:pointer; border-radius:4px; }
+
+    /* Prodotti */
+    #prodotti h2 { text-align:center; margin:2rem 0 1rem; color:#4b2e1a; }
+    .products { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; }
+    .card { background:#fff; border:1px solid #ddd; border-radius:8px; overflow:hidden; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+    .card img { height:200px; object-fit:cover; }
+    .card-body { padding:1rem; }
+    .card-body h3 { margin-bottom:0.5rem; color:#4b2e1a; }
+    .card-body p { font-size:0.9rem; margin-bottom:0.75rem; }
+    .card-body button { background:#8B4513; color:#fff; border:none; padding:0.5rem 1rem; cursor:pointer; border-radius:4px; }
+
+    /* Footer */
+    footer { background:#8B4513; color:#fff; text-align:center; padding:1rem; margin-top:2rem; font-size:0.9rem; }
+
+    /* Responsive */
+    @media(max-width:600px) {
+      .hero h1 { font-size:2rem; }
+      nav ul { flex-direction:column; align-items:center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h2>WoodArt</h2>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#prodotti">Prodotti</a></li>
+          <li><a href="#chi-siamo">Chi Siamo</a></li>
+          <li><a href="#contatti">Contatti</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Artigianato in Legno Unico</h1>
+      <p>Scopri la nostra collezione di mobili e accessori realizzati a mano</p>
+      <button>Esplora Prodotti</button>
+    </div>
+  </section>
+
+  <section id="prodotti" class="container">
+    <h2>I nostri Prodotti</h2>
+    <div class="products">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200?text=Sedia+in+Legno" alt="Sedia in Legno">
+        <div class="card-body">
+          <h3>Sedia Rustica</h3>
+          <p>Solida e confortevole, perfetta per ogni ambiente.</p>
+          <button>Aggiungi al carrello</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200?text=Tavolo+Artigianale" alt="Tavolo Artigianale">
+        <div class="card-body">
+          <h3>Tavolo Artigianale</h3>
+          <p>Design elegante, realizzato con legno massello.</p>
+          <button>Aggiungi al carrello</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200?text=Portagioie+in+Legno" alt="Portagioie in Legno">
+        <div class="card-body">
+          <h3>Portagioie</h3>
+          <p>Finitura lucida, dettagli incisi a mano.</p>
+          <button>Aggiungi al carrello</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200?text=Mensola+da+Parete" alt="Mensola da Parete">
+        <div class="card-body">
+          <h3>Mensola da Parete</h3>
+          <p>Pratica ed elegante, ideale per il soggiorno.</p>
+          <button>Aggiungi al carrello</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 WoodArt - Tutti i diritti riservati</p>
+  </footer>
+
+</body>
+</html>
