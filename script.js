@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   const exploreBtn = document.querySelector('.hero button');
   exploreBtn.addEventListener('click', () => {
-    document.getElementById('prodotti').scrollIntoView({ behavior: 'smooth' });
+    window.location.href = 'prodotti.html';
   });
 });
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const cartButtons = document.querySelectorAll('.card-body button');
