@@ -22,8 +22,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Gestione stato active per il menu
 const links = document.querySelectorAll('nav ul li a');
+const currentUrl = window.location.href;
+let found = false;
 links.forEach(link => {
-  if (link.href === window.location.href) {
+  if (link.href === currentUrl) {
     link.classList.add('active');
+    found = true;
   }
 });
+
+if (!found) {
+  links[0].classList.add('active'); // Home è il primo link
+}
