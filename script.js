@@ -1,3 +1,4 @@
+// Pulsante Prodotti
 document.addEventListener('DOMContentLoaded', () => {
   const exploreBtn = document.querySelector('.hero button');
   exploreBtn.addEventListener('click', () => {
@@ -6,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+//Pulsante Aggiunto al carrello
 document.addEventListener('DOMContentLoaded', () => {
   const cartButtons = document.querySelectorAll('.card-body button');
   cartButtons.forEach(button => {
@@ -15,4 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
       // Qui potresti salvare i dati in localStorage o inviarli a un backend
     });
   });
+});
+
+
+// Gestione stato active per il menu
+const links = document.querySelectorAll('nav ul li a');
+links.forEach(link => {
+  if (link.href === window.location.href) {
+    link.classList.add('active');
+  }
 });
