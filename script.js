@@ -37,9 +37,9 @@ if (!found) {
 
 
 //Gestione menu hamburger
-const toggle = document.querySelector('.menu-toggle');
-const nav = document.querySelector('nav');
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
 
-toggle.addEventListener('click', () => {
-  nav.classList.toggle('active');
-});
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
