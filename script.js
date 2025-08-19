@@ -34,3 +34,12 @@ links.forEach(link => {
 if (!found) {
   links[0].classList.add('active'); // Home è il primo link
 }
+
+
+//Gestione menu hamburger
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
+
+toggle.addEventListener('click', () => {
+  nav.classList.toggle('active');
+});
