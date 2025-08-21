@@ -6,13 +6,13 @@ import Footer from '../components/Footer';
 function Home() {
   return (
     <>
-   <div className="app">
-      <Header />
-      <main>
-        <Hero />
-        <ProductsHome />
-      </main>
-      <Footer />
+      <div className="app">
+        <Header />
+        <main>
+          <Hero />
+          <ProductsHome />
+        </main>
+        <Footer />
       </div>
     </>
   );

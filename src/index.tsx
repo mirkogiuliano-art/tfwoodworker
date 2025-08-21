@@ -11,6 +11,6 @@ root.render(
   <React.StrictMode>
     <BrowserRouter basename="/tfwoodworker">
       <App />
-      </BrowserRouter>
+    </BrowserRouter>
   </React.StrictMode>
 );

@@ -7,11 +7,13 @@ import '../App.css';
 const Prodotti: React.FC = () => {
     return (
         <>
+        <div className="app">
           <Header />
           <main>
             <Products />
           </main>
           <Footer />
+          </div>
         </>
       );
 };
