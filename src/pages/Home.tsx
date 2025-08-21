@@ -1,7 +1,7 @@
-import Header from '../components/Header';
-import Hero from '../components/Hero';
-import ProductsHome from '../components/ProductsHome';
-import Footer from '../components/Footer';
+import Header from '../components/Header/Header';
+import Hero from '../components/Hero/Hero';
+import ProductsHome from '../components/Products/ProductsHome';
+import Footer from '../components/Footer/Footer';
 
 function Home() {
   return (

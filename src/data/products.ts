@@ -1,8 +1,4 @@
-export interface Product {
-    title: string;
-    description: string;
-    image: string;
-  }
+import { type Product } from "./product";
   
   export const products: Product[] = [
     { title: "Sedia Rustica", description: "Solida e confortevole, perfetta per ogni ambiente.", image: "/tfwoodworker/img/prova.jpg" },

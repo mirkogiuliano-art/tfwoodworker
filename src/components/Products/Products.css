@@ -1,0 +1,11 @@
+#prodotti h2 {
+    text-align: center;
+    margin: 2rem 0 1rem;
+    color: #4b2e1a;
+  }
+  
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }

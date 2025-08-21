@@ -1,4 +1,4 @@
-import { type Product } from "./products";
+import { type Product } from "./product";
 
   export const products: Product[] = [
     { title: "Sedia Rustica Home", description: "Solida e confortevole, perfetta per ogni ambiente.", image: "/tfwoodworker/img/prova.jpg" },

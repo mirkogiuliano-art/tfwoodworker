@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import './Header.css'; 
+
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);

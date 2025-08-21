@@ -1,10 +1,10 @@
 import React from 'react';
-import ProductCard from '../components/ProductCard';
-import { products } from '../data/products';
-import '../App.css';
+import ProductCard from '../ProductCard/ProductCard';
+import { products } from '../../data/products';
+import './Products.css'; 
 
 
-const Prodotti: React.FC = () => {
+const Products: React.FC = () => {
   return (
     <>
       <section id="prodotti" className="container">
@@ -24,4 +24,4 @@ const Prodotti: React.FC = () => {
   );
 };
 
-export default Prodotti;
+export default Products;
