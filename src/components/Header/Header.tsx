@@ -2,17 +2,19 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.css'; 
 
-
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header>
       <div className="header-flex">
-        <h2 className="logo">TFWoodWorker</h2>
+        <div className="flex items-center gap-4">
+          <img src="img/logo.png" alt="Logo" className="h-18 w-auto" />
+          <span className="text-3xl logo">TFWoodWorker</span>
+        </div>
         <nav className={menuOpen ? 'active' : ''}>
           <ul>
-            <li><NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>Home</NavLink></li>
+            <li><NavLink to="/" end className={({ isActive }) => (isActive ? 'active' : '')}>Home</NavLink></li>
             <li><NavLink to="/prodotti" className={({ isActive }) => (isActive ? 'active' : '')}>Prodotti</NavLink></li>
             <li><a href="#chi-siamo">Chi Siamo</a></li>
             <li><a href="#contatti">Contatti</a></li>
