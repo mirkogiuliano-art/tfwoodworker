@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.css'; 
+import logo from '../../assets/logo.png';
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -9,7 +10,7 @@ const Header: React.FC = () => {
     <header>
       <div className="header-flex">
         <div className="flex items-center gap-4">
-          <img src="img/logo.png" alt="Logo" className="h-18 w-auto" />
+          <img src={logo} alt="Logo" className="h-18 w-auto" />
           <span className="text-3xl logo">TFWoodWorker</span>
         </div>
         <nav className={menuOpen ? 'active' : ''}>
