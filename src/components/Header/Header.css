@@ -16,6 +16,7 @@
   .social-icons {
     display: flex;
     gap: 1rem;
+    margin-top: 8px;
   }
   
   .header-flex .social-icons a:hover {
@@ -80,11 +81,22 @@
   /* Logo */
 .logo {
     font-family: 'Permanent Marker', cursive;
-    font-weight: 1.8rem;
+    font-size: 2rem;
+  }
+
+  .logo-img {
+    height: 4.5rem;
+    width: auto; 
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 
 /* Responsive */
-@media (max-width: 824px) {
+@media (max-width: 840px) {
 
   .social-icons {
     display: none;

@@ -8,7 +8,7 @@ const Hero: React.FC = () => {
     <section className="hero">
       <div className="container">
         <h1>Artigianato in Legno Unico</h1>
-        <p>Scopri la nostra collezione di mobili e accessori realizzati a mano</p>
+        <p>Scopri la nostra collezione di accessori realizzati a mano</p>
         <button onClick={() => navigate("/prodotti")}>Esplora Prodotti</button>
       </div>
     </section>

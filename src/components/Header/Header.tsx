@@ -10,9 +10,9 @@ const Header: React.FC = () => {
   return (
     <header>
       <div className="header-flex">
-        <div className="flex items-center gap-4">
-          <img src={logo} alt="Logo" className="h-18 w-auto" />
-          <span className="text-3xl logo">TFWoodWorker</span>
+        <div className="logo-container">
+          <img src={logo} alt="Logo" className="logo-img" />
+          <span className="logo">TFWoodWorker</span>
         </div>
         <nav className={menuOpen ? 'active' : ''}>
           <ul>

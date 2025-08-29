@@ -1,4 +1,5 @@
-@import "tailwindcss";
+/* @import "tailwindcss"; TODO: decommentare se uso tailwind*/  
+/* TODO: se non li uso togliere gli import di tailwind dalle dipendenze (elimina package-lock e togli da package.json e cancella vcartella node-modules*/  
 
 * {
   margin: 0;
