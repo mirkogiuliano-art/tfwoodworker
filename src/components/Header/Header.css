@@ -1,4 +1,4 @@
-header {
+  header {
     background: #8B4513;
     color: #fff;
     padding: 0;
@@ -12,7 +12,15 @@ header {
     max-width: 1200px;
     margin: 0 auto;
   }
+
+  .social-icons {
+    display: flex;
+    gap: 1rem;
+  }
   
+  .header-flex .social-icons a:hover {
+    color: #ffdca8;
+  }
   
   /* Menu */
   nav ul {
@@ -72,10 +80,16 @@ header {
   /* Logo */
 .logo {
     font-family: 'Permanent Marker', cursive;
+    font-weight: 1.8rem;
   }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 824px) {
+
+  .social-icons {
+    display: none;
+  }
+
   .header-flex {
     max-width: 100%;
     padding: 1rem 2rem;

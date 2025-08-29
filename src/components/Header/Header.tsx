@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import SocialIcons from '../SocialIcons/SocialIcons';
 import './Header.css'; 
 import logo from '../../assets/logo.png';
 
@@ -21,6 +22,7 @@ const Header: React.FC = () => {
             <li><a href="#contatti">Contatti</a></li>
           </ul>
         </nav>
+        <SocialIcons />
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
           &#9776;
         </button>
