@@ -9,9 +9,10 @@ const ProductsHome: React.FC = () => {
       <section id="prodotti" className="container">
         <h2>I nostri Prodotti</h2>
         <div className="products">
-          {products.map((product, index) => (
+          {products.map((product) => (
             <ProductCard
-              key={index}
+              key={product.id}       // usa l'id univoco come chiave
+              id={product.id}        // passa l'id al ProductCard
               title={product.title}
               description={product.description}
               image={product.image}
