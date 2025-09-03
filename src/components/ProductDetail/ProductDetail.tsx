@@ -9,9 +9,6 @@ import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import { Share2, Star, ChevronLeft, ChevronRight } from "lucide-react";
 
-//TODO: cambia nome al componete (Productdetail sia .tsx sia .css sono un altra versione, tenere po questa o quelle due )
-// Productdetail è più easy e più simile alle altre pagine 
-
 
 // --- Types ---
 export type Media = { id: string; src: string; alt: string };
@@ -168,7 +165,7 @@ export default function ProductDetailPage({ product = mock }: { product?: Produc
         {/* Details */}
         <div>
           <h1 className="text-4xl font-semibold text-[#8B4513]">{product.title}</h1>
-          {product.subtitle && <p className="mt-1 text-[#5c2e0f]">{product.subtitle}</p>}
+          {product.subtitle && <p className="mt-1 text-[#5c2e0f] py-2">{product.subtitle}</p>}
 
           <div className="mt-3 flex items-center gap-3">
             <Stars value={product.rating} />
@@ -179,7 +176,7 @@ export default function ProductDetailPage({ product = mock }: { product?: Produc
 
           <div className="space-y-4">
             <div>
-              <Label className="mb-2 block text-[#8B4513]">Variante</Label>
+              <Label className="mb-2 block text-[#8B4513] py-2">Variante</Label>
               <div className="grid grid-cols-2 gap-2">
                 {product.variants.map((v) => (
                   <button
@@ -199,44 +196,52 @@ export default function ProductDetailPage({ product = mock }: { product?: Produc
               </div>
             </div>
 
-            <div className="flex items-end gap-3">
-              <div className="w-28">
-                <Label htmlFor="qty" className="text-[#8B4513]">Quantità</Label>
-                <Input
-                  id="qty"
-                  type="number"
-                  min={1}
-                  value={qty}
-                  onChange={(e) => setQty(Math.max(1, Number(e.target.value)))}
-                  className="border-[#e8dfd0] focus-visible:ring-[#8B4513]"
-                />
-              </div>
-              <div className="ml-auto text-right">
-                {variant?.compareAtPrice && (
-                  <div className="text-sm line-through text-[#5c2e0f]">{currency(variant.compareAtPrice)}</div>
-                )}
-                <div className="text-3xl font-semibold text-[#8B4513]">{currency(price)}</div>
-              </div>
-            </div>
+            <div className="flex items-center gap-3 py-2">
+              <div className="flex items-center gap-1">
+                <button
+                    type="button"
+                    onClick={() => setQty(Math.max(1, qty - 1))}
+                    className="w-7 h-7 flex items-center justify-center bg-[#f0e7dc] hover:bg-[#e0d4c5] text-[#8B4513] rounded"
+                  >
+                    –
+                  </button>
 
-            <div className="flex items-center gap-3">
+                  <Input
+                    id="qty"
+                    type="number"
+                    min={1}
+                    value={qty}
+                    onChange={(e) => setQty(Math.max(1, Number(e.target.value)))}
+                    className="w-12 text-center border-[#e8dfd0] focus:ring-0 p-0"
+                  />
+
+                  <button
+                    type="button"
+                    onClick={() => setQty(qty + 1)}
+                    className="w-7 h-7 flex items-center justify-center bg-[#f0e7dc] hover:bg-[#e0d4c5] text-[#8B4513] rounded"
+                  >
+                    +
+                  </button>
+              </div>
               <Button size="lg" className="h-12 rounded-2xl px-6 bg-[#8B4513] hover:bg-[#5c2e0f] text-white">Aggiungi al carrello</Button>
               <Button variant="outline" size="lg" className="h-12 rounded-2xl px-6 border-[#8B4513] text-[#8B4513] hover:bg-[#ffdca8]">Acquista ora</Button>
               <button className="ml-auto inline-flex items-center gap-2 text-sm text-[#8B4513] hover:underline"><Share2 className="h-4 w-4" />Condividi</button>
             </div>
 
-            <Separator className="my-8 bg-[#e8dfd0]" />
+            <Separator className="my-6 bg-[#e8dfd0]" />
 
-            <Tabs defaultValue="descrizione">
-              <TabsList className="grid w-full grid-cols-3 bg-[#e8dfd0]">
-                <TabsTrigger value="descrizione">Descrizione</TabsTrigger>
-                <TabsTrigger value="dettagli">Dettagli</TabsTrigger>
-                <TabsTrigger value="dimensioni">Dimensioni</TabsTrigger>
-              </TabsList>
-              <TabsContent value="descrizione" className="pt-4 text-sm text-[#5c2e0f]">{product.description}</TabsContent>
-              <TabsContent value="dettagli" className="pt-4 text-sm text-[#5c2e0f]">{product.materials} — {product.care}</TabsContent>
-              <TabsContent value="dimensioni" className="pt-4 text-sm text-[#5c2e0f]">{product.dimensions}</TabsContent>
-            </Tabs>
+            <div className="py-2">
+              <Tabs defaultValue="descrizione">
+                <TabsList className="grid w-full grid-cols-3 bg-[#e8dfd0]">
+                  <TabsTrigger value="descrizione" className="hover:bg-[#e0d4c5]">Descrizione</TabsTrigger>
+                  <TabsTrigger value="dettagli" className="hover:bg-[#e0d4c5]">Dettagli</TabsTrigger>
+                  <TabsTrigger value="dimensioni" className="hover:bg-[#e0d4c5]">Dimensioni</TabsTrigger>
+                </TabsList>
+                <TabsContent value="descrizione" className="pt-4 text-sm text-[#5c2e0f]">{product.description}</TabsContent>
+                <TabsContent value="dettagli" className="pt-4 text-sm text-[#5c2e0f]">{product.materials} — {product.care}</TabsContent>
+                <TabsContent value="dimensioni" className="pt-4 text-sm text-[#5c2e0f]">{product.dimensions}</TabsContent>
+              </Tabs>
+            </div>
           </div>
         </div>
       </div>
@@ -251,7 +256,7 @@ export default function ProductDetailPage({ product = mock }: { product?: Produc
           <div className="ml-auto text-right">
             <div className="text-base font-semibold text-[#8B4513]">{currency(price)}</div>
           </div>
-          <Button className="ml-2 rounded-xl bg-[#8B4513] hover:bg-[#5c2e0f] text-white">Aggiungi</Button>
+          <Button className="ml-2 rounded-xl bg-[#8B4513] hover:bg-[#5c2e0f] text-white">Aggiungi al carrello</Button>
         </div>
       </div>
     </div>
