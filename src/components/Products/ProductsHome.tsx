@@ -11,7 +11,7 @@ const ProductsHome: React.FC = () => {
         <div className="products">
           {products.map((product) => (
             <ProductCard
-              key={product.id}       // usa l'id univoco come chiave
+              key={product.id}       // usa l'id univoco come chiave //TODO: tenere sia key che id ???
               id={product.id}        // passa l'id al ProductCard
               title={product.title}
               description={product.description}

@@ -3,7 +3,6 @@
 
 * {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -33,7 +32,7 @@ html {
   overflow-y: scroll;
 }
 
-h1 {
+.header h1 {
   font-family: 'Permanent Marker', cursive;
   font-weight: 400;
 }
@@ -57,6 +56,13 @@ main {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+.container-padding {
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
 
 /* ---break---*/
 

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./ProductCard.css";
 
 interface ProductCardProps {
-  id: string; // aggiungo id/slug per identificare il prodotto
+  id: string;
   title: string;
   description: string;
   image: string;
