@@ -226,10 +226,8 @@ export default function ProductDetailPage({ product = mock }: { product?: Produc
                 </div>
               </div>
 
-
-
               <div className="flex flex-col sm:flex-row items-center gap-3 py-2">
-                <div className="flex items-center gap-1">
+                <div className="flex items-center gap-1 self-start">
                   <button type="button" onClick={() => setQty(Math.max(1, qty - 1))} className="w-7 h-7 flex items-center justify-center bg-[#f0e7dc] hover:bg-[#e0d4c5] text-[#8B4513] rounded">–</button>
                   <Input id="qty" type="number" min={1} value={qty} onChange={(e) => setQty(Math.max(1, Number(e.target.value)))} className="w-12 text-center border-[#e8dfd0] focus:ring-0 p-0" />
                   <button type="button" onClick={() => setQty(qty + 1)} className="w-7 h-7 flex items-center justify-center bg-[#f0e7dc] hover:bg-[#e0d4c5] text-[#8B4513] rounded">+</button>
