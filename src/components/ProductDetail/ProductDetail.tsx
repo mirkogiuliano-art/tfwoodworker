@@ -33,6 +33,7 @@ export type Product = {
   shippingInfo?: string;
   returnsInfo?: string;
   warrantyInfo?: string;
+  relatedProducts?: Product[];
 };
 
 // --- Mock data ---
@@ -65,6 +66,50 @@ const mock: Product = {
   shippingInfo: "Spedizione in 3–5 giorni lavorativi dall’UE.",
   returnsInfo: "Reso entro 30 giorni.",
   warrantyInfo: "Garanzia 2 anni.",
+  relatedProducts: [
+    {
+      id: "bench-2",
+      title: "Oak Bench",
+      media: [{ id: "1", src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop", alt: "Oak Bench" }],
+      variants: [{ id: "oak-bench-variant", name: "Oak / 120 cm", price: 399, compareAtPrice: 499, inStock: true }],
+      description: "Elegant oak bench for living room or garden.",
+    },
+    {
+      id: "chair-1",
+      title: "Teak Chair",
+      media: [{ id: "1", src: "https://images.unsplash.com/photo-1556910101-6f5e72dc39d4?q=80&w=800&auto=format&fit=crop", alt: "Teak Chair" }],
+      variants: [{ id: "teak-chair-variant", name: "Teak / Standard", price: 249, compareAtPrice: 499, inStock: true }],
+      description: "Minimal teak chair, perfect for any interior.",
+    },
+    {
+      id: "table-1",
+      title: "Minimal Table",
+      media: [{ id: "1", src: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=800&auto=format&fit=crop", alt: "Minimal Table" }],
+      variants: [{ id: "minimal-table-variant", name: "Table / 150 cm", price: 699, inStock: true }],
+      description: "Clean design table for dining or office.",
+    },
+    {
+      id: "stool-1",
+      title: "Wooden Stool",
+      media: [{ id: "1", src: "https://images.unsplash.com/photo-1616627981380-38fc9e7c3755?q=80&w=800&auto=format&fit=crop", alt: "Wooden Stool" }],
+      variants: [{ id: "wooden-stool-variant", name: "Stool / 45 cm", price: 129, inStock: true }],
+      description: "Compact wooden stool, suitable for kitchen or bar.",
+    },
+    {
+      id: "table-1",
+      title: "Minimal Table",
+      media: [{ id: "1", src: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=800&auto=format&fit=crop", alt: "Minimal Table" }],
+      variants: [{ id: "minimal-table-variant", name: "Table / 150 cm", price: 699, inStock: true }],
+      description: "Clean design table for dining or office.",
+    },
+    {
+      id: "stool-1",
+      title: "Wooden Stool",
+      media: [{ id: "1", src: "https://images.unsplash.com/photo-1616627981380-38fc9e7c3755?q=80&w=800&auto=format&fit=crop", alt: "Wooden Stool" }],
+      variants: [{ id: "wooden-stool-variant", name: "Stool / 45 cm", price: 129, inStock: true }],
+      description: "Compact wooden stool, suitable for kitchen or bar.",
+    },
+  ],
 };
 
 // --- Helpers ---
@@ -136,7 +181,7 @@ export default function ProductDetailPage({ product = mock }: { product?: Produc
               </CardContent>
             </Card>
 
-            <div className="mt-3 grid grid-cols-4 gap-2">
+            <div className="mt-3 grid grid-cols-4 gap-2 pt-1">
               {product.media.map((m, i) => (
                 <button key={m.id} onClick={() => setIndex(i)} className={cn(
                   "rounded-xl overflow-hidden border",
@@ -175,7 +220,13 @@ export default function ProductDetailPage({ product = mock }: { product?: Produc
                     </button>
                   ))}
                 </div>
+                <div className="flex items-center gap-2 pt-2">
+                  <p className="text-xl line-through text-[#5c2e0f]"> {variant?.compareAtPrice && currency(variant.compareAtPrice)} </p>
+                  <p className="text-3xl font-semibold text-[#8B4513]">{currency(price)}</p>
+                </div>
               </div>
+
+
 
               <div className="flex flex-col sm:flex-row items-center gap-3 py-2">
                 <div className="flex items-center gap-1">
@@ -208,23 +259,20 @@ export default function ProductDetailPage({ product = mock }: { product?: Produc
         </div>
 
         {/* Related products */}
-        <div className="max-w-7xl mx-auto px-4 py-12 relative">
+        <div className="max-w-7xl mx-auto px-1 py-12 relative">
           <h2 className="text-2xl font-semibold text-[#8B4513] mb-6">Prodotti correlati</h2>
-          <div className="relative">
-            <div id="related-scroll" className="flex gap-6 overflow-x-hidden scroll-smooth">
-              {[
-                { id: "bench-2", title: "Oak Bench", price: 399, img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop" },
-                { id: "chair-1", title: "Teak Chair", price: 249, img: "https://images.unsplash.com/photo-1556910101-6f5e72dc39d4?q=80&w=800&auto=format&fit=crop" },
-                { id: "table-1", title: "Minimal Table", price: 699, img: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=800&auto=format&fit=crop" },
-                { id: "stool-1", title: "Wooden Stool", price: 129, img: "https://images.unsplash.com/photo-1616627981380-38fc9e7c3755?q=80&w=800&auto=format&fit=crop" },
-                { id: "stool-1", title: "Wooden Stool", price: 129, img: "https://images.unsplash.com/photo-1616627981380-38fc9e7c3755?q=80&w=800&auto=format&fit=crop" },
-              ].map((item) => (
-                <Card key={item.id} className="min-w-[200px] sm:min-w-[250px] rounded-2xl border border-[#e8dfd0] overflow-hidden hover:shadow-lg transition">
+          <div className="relative pt-1">
+            <div id="related-scroll" className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth touch-pan-x">
+              { product.relatedProducts?.map((relatedProduct) => (
+                <Card key={relatedProduct.id} className="min-w-[180px] sm:min-w-[250px] rounded-2xl border border-[#e8dfd0] overflow-hidden hover:shadow-lg transition p-0">
                   <CardContent className="p-0">
-                    <img src={item.img} alt={item.title} className="w-full h-48 object-cover" />
-                    <div className="p-4">
-                      <h3 className="text-lg font-medium text-[#8B4513]">{item.title}</h3>
-                      <p className="text-sm text-[#5c2e0f]">{currency(item.price)}</p>
+                    <img src={relatedProduct.media[0].src} alt={relatedProduct.media[0].alt} className="w-full h-48 object-cover" />
+                    <div className="px-4 pt-2 pb-4">
+                      <h3 className="text-lg font-medium text-[#8B4513]">{relatedProduct.title}</h3>
+                      <div className="flex items-center gap-2 py-1">
+                        <p className="text-sm line-through text-[#5c2e0f]"> {relatedProduct.variants[0]?.compareAtPrice && currency(relatedProduct.variants[0].compareAtPrice)}</p>
+                        <p className="text-md font-semibold text-[#5c2e0f]"> {currency(relatedProduct.variants[0]?.price)} </p>
+                      </div>
                       <Button className="mt-3 w-full rounded-xl bg-[#8B4513] hover:bg-[#5c2e0f] text-white">Aggiungi al carrello</Button>
                     </div>
                   </CardContent>
@@ -241,21 +289,6 @@ export default function ProductDetailPage({ product = mock }: { product?: Produc
             </button>
           </div>
         </div>
-
-        {/* Sticky add-to-cart (mobile) */}
-        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[#e8dfd0] bg-[#fff8f0]/95 backdrop-blur lg:hidden">
-          <div className="mx-auto max-w-7xl px-4 py-3 flex items-center gap-3">
-            <div className="ml-1">
-              <div className="text-sm font-medium text-[#8B4513]">{product.title}</div>
-              <div className="text-xs text-[#5c2e0f]">{variant?.name}</div>
-            </div>
-            <div className="ml-auto text-right">
-              <div className="text-base font-semibold text-[#8B4513]">{currency(price)}</div>
-            </div>
-            <Button className="ml-2 rounded-xl bg-[#8B4513] hover:bg-[#5c2e0f] text-white">Aggiungi al carrello</Button>
-          </div>
-        </div>
-
       </div>
     </div>
   );
