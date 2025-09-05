@@ -262,7 +262,7 @@ export default function ProductDetailPage({ product = mock }: { product?: Produc
         <div className="max-w-7xl mx-auto px-1 py-12 relative">
           <h2 className="text-2xl font-semibold text-[#8B4513] mb-6">Prodotti correlati</h2>
           <div className="relative pt-1">
-            <div id="related-scroll" className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth touch-pan-x">
+            <div id="related-scroll" className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth touch-pan-x touch-pan-y">
               { product.relatedProducts?.map((relatedProduct) => (
                 <Card key={relatedProduct.id} className="min-w-[180px] sm:min-w-[250px] rounded-2xl border border-[#e8dfd0] overflow-hidden hover:shadow-lg transition p-0">
                   <CardContent className="p-0">
